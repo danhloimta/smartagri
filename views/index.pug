@@ -1,0 +1,222 @@
+extends layout
+
+block content
+  <div class="main-content">
+    <div class="container-fluid">
+        <div class="row">
+          //- dat lich bon
+          <div class="col-md-6">
+            <div class="panel panel-scrolling">
+              <div class="panel-heading pb-0">
+                <h3 class="panel-title">Thông số môi trường</h3>
+              </div>
+              <div class="panel-body pb0">
+                <div class="info">
+                  <div class="mt-1 data-sensor border">
+                    <div class="form-group">
+                      <h4 class="text-blue">Độ ẩm không khí:</h4>
+                      <span>15</span>
+                    </div>
+                  </div>
+                  <div class="data-sensor border">
+                    <div class="form-group">
+                      <h4 class="text-danger">Nhiệt độ:</h4>
+                      <span>45</span>
+                    </div>
+                  </div>
+                  <div class="data-sensor border">
+                    <div class="form-group">
+                      <h4 class="text-info">Độ ẩm đất:</h4>
+                      <span>500</span>
+                    </div>
+                  </div>
+                  <div class="data-sensor border">
+                    <div class="form-group">
+                      <h4 class="text-success">Cường độ ánh sáng:</h4>
+                      <span>500</span>
+                    </div>
+                  </div>
+                  <div class="set-calendar border">
+                    <h4>Đặt lịch bón phân</h4>
+                    <div class="row">
+                      <div class="col-sm-5">
+                        <input type="time" id="appt" name="appt" min="00:00" max="23:59" required class="form-control form-note">
+                      </div>
+                      <div class="col-sm-5">
+                        <input type="date" class="form-control form-note">
+                      </div>
+                      <div class="col-sm-2">
+                        <button class="btn btn-primary">Lưu</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6 col-sm-12">
+            <div class="panel panel-scrolling">
+              <div class="panel-heading">
+                <div class="form-group mb-4">
+                  <div class="col-sm-8">
+                    <label for="">Điều khiển từ xa</label>
+                  </div>
+                  <div class="col-sm-4">
+                    <input type="button" class="btn btn-primary dktx" value="Bật">
+                  </div>
+                </div>
+              </div>
+              <div class="panel-body pb0 list-btn row">
+                <div class="form-group mb-4">
+                  <div class="col-sm-8">
+                    <label for="">Máy bơm</label>
+                  </div>
+                  <div class="col-sm-4">
+                    <button class="btn btn-primary mbom">Bật</button>
+                  </div>
+                </div>
+                <div class="form-group mb-4">
+                  <div class="col-sm-8">
+                    <label for="">Quạt làm khô</label>
+                  </div>
+                  <div class="col-sm-4">
+                    <button class="btn btn-primary quatkho">Bật</button>
+                  </div>
+                </div>
+                <div class="form-group mb-4">
+                  <div class="col-sm-8">
+                    <label for="">Quạt làm mát</label>
+                  </div>
+                  <div class="col-sm-4">
+                    <button class="btn btn-primary quatmat">Bật</button>
+                  </div>
+                </div>
+                <div class="form-group mb-4">
+                  <div class="col-sm-8">
+                    <label for="">Mái che</label>
+                  </div>
+                  <div class="col-sm-4">
+                    <button class="btn btn-primary maiche">Bật</button>
+                  </div>
+                </div>
+                <div class="form-group mb-4">
+                  <div class="col-sm-8">
+                    <label for="">Bón phân</label>
+                  </div>
+                  <div class="col-sm-4">
+                    <button class="btn btn-primary bonphan">Bật</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          //- ghi chu
+          <div class="col-md-6">
+            <!-- MULTI CHARTS -->
+            <div class="panel panel-scrolling">
+              <div class="panel-heading">
+                <h3 class="panel-title">Ghi chú</h3>
+                <div class="right">
+                  <button type="button" class="btn-toggle-collapse"><i class="lnr lnr-chevron-up"></i></button>
+                  <button type="button" class="btn-remove"><i class="lnr lnr-cross"></i></button>
+                </div>
+              </div>
+              <div class="panel-body pb0">
+                <ul class="list-unstyled activity-list">
+                  each note in notes
+                      li
+                        img.img-circle.pull-left.avatar(src='/assets/img/user/default.png', alt='Avatar')
+                        p
+                          a(href='#') abcd 
+                          = note.content
+                          span.timestamp 12/12/1231
+                  
+
+                </ul>
+              </div>
+              <div class="panel-footer pb0">
+                <div class="form-group">
+                  <form action="">
+                    <input type="text" name="content" class="form-control form-note" placeholder="Nhập ghi chú" required>
+                    <input type="hidden" name="area_id" value="{{ $area->id }}" class="area_id">
+                    <button class="btn btn-primary btn-add-note" type="reset">Thêm</button>
+                  </form>
+                </div>
+              </div>
+            </div>
+            <!-- END MULTI CHARTS -->
+          </div>
+          //- {{-- do am kk --}}
+          <div class="col-md-6">
+            <!-- RECENT PURCHASES -->
+            <div class="panel">
+              <div class="panel-heading">
+                <h3 class="panel-title">Độ ẩm không khí</h3>
+                <input type="file" id="read-file">
+                <div class="right">
+                  <button type="button" class="btn-toggle-collapse"><i class="lnr lnr-chevron-up"></i></button>
+                  <button type="button" class="btn-remove"><i class="lnr lnr-cross"></i></button>
+                </div>
+              </div>
+              <div class="panel-body">
+                <div id="visits-trends-chart" class="ct-chart"></div>
+              </div>
+            </div>
+            <!-- END RECENT PURCHASES -->
+          </div>
+        </div>
+        <div class="row">
+          //- {{-- nhiet do --}}
+          <div class="col-md-6">
+            <!-- RECENT PURCHASES -->
+            <div class="panel">
+              <div class="panel-heading">
+                <h3 class="panel-title">Nhiệt độ</h3>
+                <div class="right">
+                  <button type="button" class="btn-toggle-collapse"><i class="lnr lnr-chevron-up"></i></button>
+                  <button type="button" class="btn-remove"><i class="lnr lnr-cross"></i></button>
+                </div>
+              </div>
+              <div class="panel-body">
+                <div id="visits-trends-chart2" class="ct-chart"></div>
+              </div>
+            </div>
+            <!-- END RECENT PURCHASES -->
+          </div>
+          <div class="col-md-6">
+            <!-- RECENT PURCHASES -->
+            <div class="panel">
+              <div class="panel-heading">
+                <h3 class="panel-title">Độ ẩm đất</h3>
+                <div class="right">
+                  <button type="button" class="btn-toggle-collapse"><i class="lnr lnr-chevron-up"></i></button>
+                  <button type="button" class="btn-remove"><i class="lnr lnr-cross"></i></button>
+                </div>
+              </div>
+              <div class="panel-body">
+                <div id="visits-trends-chart3" class="ct-chart"></div>
+              </div>
+            </div>
+            <!-- END RECENT PURCHASES -->
+          </div>
+          <div class="col-md-6">
+            <!-- RECENT PURCHASES -->
+            <div class="panel">
+              <div class="panel-heading">
+                <h3 class="panel-title">Cường độ ánh sáng</h3>
+                <div class="right">
+                  <button type="button" class="btn-toggle-collapse"><i class="lnr lnr-chevron-up"></i></button>
+                  <button type="button" class="btn-remove"><i class="lnr lnr-cross"></i></button>
+                </div>
+              </div>
+              <div class="panel-body">
+                <div id="visits-trends-chart4" class="ct-chart"></div>
+              </div>
+            </div>
+            <!-- END RECENT PURCHASES -->
+          </div>
+        </div>
+    </div>
+  </div>

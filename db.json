@@ -1,0 +1,43 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "username": "ngaihoang",
+      "password": "123456",
+      "avatar": "default.png"
+    }
+  ],
+  "notes": [
+    {
+      "id": 1,
+      "kv": "kvA",
+      "content": "Note 1",
+      "user_id": 1
+    },
+    {
+      "id": 2,
+      "kv": "kvA",
+      "content": "Note 2",
+      "user_id": 1
+    },
+    {
+      "id": 3,
+      "kv": "kvB",
+      "content": "Note 3 KvB",
+      "user_id": 1
+    },
+    {
+      "id": 4,
+      "kv": "kvB",
+      "content": "Note 4 KvB",
+      "user_id": 1
+    },
+    {
+      "id": 5,
+      "kv": "kvC",
+      "content": "Note 5 KvC",
+      "user_id": 1
+    }
+  ],
+  "posts": []
+}

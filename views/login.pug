@@ -1,0 +1,42 @@
+doctype html
+html(lang='en')
+  head
+    meta(charset='UTF-8')
+    meta(name='viewport', content='width=device-width, initial-scale=1.0')
+    meta(http-equiv='X-UA-Compatible', content='ie=edge')
+    title Login
+    link(rel="stylesheet", href="/assets/css/bootstrap.min.css") 
+    link(rel="stylesheet", href="/assets/main.css")
+  body
+    #wrapper
+      .vertical-align-wrap
+        .vertical-align-middle
+          .auth-box
+            .left
+              .content
+                .header
+                  .logo.text-center
+                    h1 Smart Home
+                  p.lead Đăng nhập tài khoản
+                if errors
+                  each err in errors
+                    ul.list-unstyled
+                      li
+                        p.text-danger=err
+                form(method='POST', action='', aria-label='')
+                  .form-group.row
+                    .col-md-12
+                      input#email.form-control(type='text', name='username', if (value) value=value.username, placeholder='Username', required='', autofocus='')
+                  .form-group.row
+                    .col-md-12
+                      input#password.form-control(type='password', name='password', placeholder='Password', required='')
+                  .form-group.row.mb-0
+                    .col-md-12
+                      button.btn.btn-primary(type='submit')
+                        | Login
+            .right
+              .overlay
+              .content.text
+                h1.heading Đăng nhập tài khoản người dùng
+                p Ngai's House
+            .clearfix

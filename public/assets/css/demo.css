@@ -1,0 +1,132 @@
+/* All styles created for demo purposes only, you may not need this for your project */
+.demo-button button {
+    margin-bottom: 5px; }
+
+.demo-icons li {
+    margin-bottom: 50px;
+    text-align: center; }
+
+.demo-icons .lnr,
+.demo-icons .fa {
+    font-size: 28px; }
+
+.demo-icons .cssclass {
+    display: block;
+    margin-top: 5px;
+    margin-left: 5px; 
+}
+
+.set-calendar input.form-control.form-note {
+    width: 100%;
+}
+
+input.form-control.form-note {
+    display: inline-block;
+    width: 70%;
+}
+
+button.btn.btn-primary.btn-add-note {
+    width: 79px;
+    margin-top: -3px;
+}
+
+.mt-2 {
+    margin-top: 25px;
+}
+
+.mt-1 {
+    margin-top: 15px;
+}
+
+.data-sensor h4 {
+    display: -webkit-inline-box;
+}
+
+.data-sensor span {
+    font-size: 18px;
+    margin-left: 15px;
+}
+
+.navbar-default .brand {
+    width: 5%;
+    margin-left: 55px;
+    padding: 0;
+}
+
+form.navbar-form.navbar-left span {
+    font-size: 28px;
+    background: none;
+    border: none;
+    font-weight: bold;
+}
+
+form.navbar-form.navbar-left {
+    width: 61%;
+    text-align: center;
+}
+
+.info {
+    border-radius: 5px;
+    background-color: #fff;
+    height: 364px;
+}
+
+.pb-0 {
+    padding-bottom: 0 !important;
+}
+
+.set-calendar h4 {
+    margin-bottom: 22px;
+    margin-top: 0;
+}
+
+.vertical-align-wrap {
+    margin-top: 75px;
+}
+
+.panel-footer.pb0 {
+    padding-bottom: 0 !important;
+}
+.panel-body.pb0 {
+    padding-bottom: 0 !important;
+}
+
+#sidebar-nav {
+    background: url('../img/bg2.jpg');
+    background-repeat: no-repeat;;
+    background-position: center;
+    background-size: cover;
+}
+
+.sidebar .nav > li > a {
+    color: #00135f;
+    font-size: 18px;
+}
+
+.mb-4 {
+    margin-bottom: 15px;
+}
+
+.list-btn .form-group {
+    overflow: auto;
+}
+
+.btn-secondary {
+    color: #fff;
+    background-color: #6c757d;
+    border-color: #6c757d;
+}
+
+.disabled {
+    cursor: not-allowed;
+    pointer-events: none;
+}
+
+.text-bllue {
+    color: blue;
+}
+
+.set-calendar .row {
+    max-width: 100%;
+}
+/*# sourceMappingURL=demo.css.map */
