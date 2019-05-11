@@ -38,16 +38,20 @@ block content
                   </div>
                   <div class="set-calendar border">
                     <h4>Đặt lịch bón phân</h4>
+                    if (schedules)
+                      p.schedules.text-danger= 'Đã đặt lịch bón phân:' + schedules.created_at
                     <div class="row">
-                      <div class="col-sm-5">
-                        <input type="time" id="appt" name="appt" min="00:00" max="23:59" required class="form-control form-note">
-                      </div>
-                      <div class="col-sm-5">
-                        <input type="date" class="form-control form-note">
-                      </div>
-                      <div class="col-sm-2">
-                        <button class="btn btn-primary">Lưu</button>
-                      </div>
+                      form(action="" method="post" id="schedule")
+                        <div class="col-sm-5">
+                          <input type="time" id="appt" name="time" min="00:00" max="23:59" required class="form-control form-note">
+                        </div>
+                        <div class="col-sm-5">
+                          <input type="date" name="date" class="form-control form-note">
+                        </div>
+                          input(type="hidden" name="kv" value=notes[0].kv)
+                        <div class="col-sm-2">
+                          <button type="submit" class="btn btn-primary btn-schedule">Lưu</button>
+                        </div>
                     </div>
                   </div>
                 </div>

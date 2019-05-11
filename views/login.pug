@@ -26,7 +26,10 @@ html(lang='en')
                 form(method='POST', action='', aria-label='')
                   .form-group.row
                     .col-md-12
-                      input#email.form-control(type='text', name='username', if (value) value=value.username, placeholder='Username', required='', autofocus='')
+                      if (value)
+                        input#email.form-control(type='text', name='username', value= value.username, placeholder='Username', required='', autofocus='')
+                      else
+                        input#email.form-control(type='text', name='username', placeholder='Username', required='', autofocus='')
                   .form-group.row
                     .col-md-12
                       input#password.form-control(type='password', name='password', placeholder='Password', required='')
@@ -38,5 +41,5 @@ html(lang='en')
               .overlay
               .content.text
                 h1.heading Đăng nhập tài khoản người dùng
-                p Ngai's House
+                p Smartagri - Nông nghiệp thông minh
             .clearfix
