@@ -12,6 +12,6 @@ router.get('/area/kvA', middleware.requireAuth, controller.kva);
 router.get('/area/kvB', middleware.requireAuth, controller.kvb);
 router.get('/area/kvC', middleware.requireAuth, controller.kvc);
 
-router.post('/area/kvA', middleware.requireAuth, controller.saveSchedule);
+router.post('/area/*', middleware.requireAuth, controller.saveSchedule);
 
 module.exports = router;

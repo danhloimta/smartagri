@@ -4,6 +4,7 @@ var bodyParser = require('body-parser');
 var ip = require('ip');
 var path = require('path');
 var cookieParser = require('cookie-parser');
+var db = require('./db');
 
 
 var app = express();
@@ -40,7 +41,25 @@ io.on('connection', function (socket) {
         socket.broadcast.emit('led-kitchen', data);
     });
 
+    socket.on('sent-note', function(data) {
+        var mess = {};
+        mess.kv = data.kv;
+        mess.content = data.content;
+        mess.user = data.user;
+        mess.created_at = getFormattedDate();
+        
+        db.get('notes').unshift(mess).write();
+        io.sockets.emit('show-mess', mess);
+    });
+
     socket.on('disconnect', function () {
         console.log('Client disconnect'.gray);
     });
 });
+
+function getFormattedDate() {
+    var date = new Date();
+    var str = date.getFullYear() + "-" + (date.getMonth() + 1) + "-" + date.getDate() + " " +  date.getHours() + ":" + date.getMinutes() + ":" + date.getSeconds();
+
+    return str;
+}

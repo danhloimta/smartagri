@@ -3,40 +3,71 @@
     {
       "id": 1,
       "username": "ngaihoang",
+      "name": "Ngai Hoang",
       "password": "123456",
       "avatar": "default.png"
     }
   ],
   "notes": [
     {
-      "id": 1,
-      "kv": "kvA",
-      "content": "Note 1",
-      "user_id": 1
-    },
-    {
-      "id": 2,
-      "kv": "kvA",
-      "content": "Note 2",
-      "user_id": 1
-    },
-    {
-      "id": 3,
-      "kv": "kvB",
-      "content": "Note 3 KvB",
-      "user_id": 1
-    },
-    {
-      "id": 4,
-      "kv": "kvB",
-      "content": "Note 4 KvB",
-      "user_id": 1
-    },
-    {
-      "id": 5,
       "kv": "kvC",
-      "content": "Note 5 KvC",
-      "user_id": 1
+      "content": "ghi chu 2 kv C",
+      "user": "Ngai Hoang",
+      "created_at": "2019-5-12 16:55:55"
+    },
+    {
+      "kv": "kvA",
+      "content": "ghi chu 6 kv A",
+      "user": "Ngai Hoang",
+      "created_at": "2019-5-12 16:54:57"
+    },
+    {
+      "kv": "kvB",
+      "content": "ghi chu 4 kv B",
+      "user": "Ngai Hoang",
+      "created_at": "2019-5-12 16:54:41"
+    },
+    {
+      "kv": "kvB",
+      "content": "ghi chu 3 kv B",
+      "user": "Ngai Hoang",
+      "created_at": "2019-5-12 16:50:26"
+    },
+    {
+      "kv": "kvB",
+      "content": "ghi chu 2 kv B",
+      "user": "Ngai Hoang",
+      "created_at": "2019-5-12 16:42:47"
+    },
+    {
+      "kv": "kvC",
+      "content": "ghi chu 1 o khu vuc C",
+      "user": "Ngai Hoang",
+      "created_at": "2019-5-12 16:42:5"
+    },
+    {
+      "kv": "kvB",
+      "content": "ghi chu 1 o khu vuc B",
+      "user": "Ngai Hoang",
+      "created_at": "2019-5-12 16:41:54"
+    },
+    {
+      "kv": "kvA",
+      "content": "ghi chu 5",
+      "user": "Ngai Hoang",
+      "created_at": "2019-5-12 16:38:26"
+    },
+    {
+      "kv": "kvA",
+      "content": "ghi chu 3 kv A ",
+      "user": "Ngai Hoang",
+      "created_at": "2019-5-12 16:35:16"
+    },
+    {
+      "kv": "kvA",
+      "content": "ghi chu 4 kv A",
+      "user": "Ngai Hoang",
+      "created_at": "2019-5-12 16:36:33"
     }
   ],
   "schedules": [
@@ -45,6 +76,12 @@
       "date": "20198-12-12",
       "time": "00:21",
       "created_at": "2019-05-10T21:14:55.602Z"
+    },
+    {
+      "kv": "kvB",
+      "date": "2019-06-18",
+      "time": "00:05",
+      "created_at": "2019-05-12T03:16:40.415Z"
     }
   ],
   "posts": []

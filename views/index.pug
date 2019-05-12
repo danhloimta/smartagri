@@ -5,6 +5,9 @@ block content
     <div class="container-fluid">
         <div class="row">
           //- dat lich bon
+          if (errors)
+            each err in errors
+              li=err
           <div class="col-md-6">
             <div class="panel panel-scrolling">
               <div class="panel-heading pb-0">
@@ -12,34 +15,40 @@ block content
               </div>
               <div class="panel-body pb0">
                 <div class="info">
-                  <div class="mt-1 data-sensor border">
-                    <div class="form-group">
-                      <h4 class="text-blue">Độ ẩm không khí:</h4>
-                      <span>15</span>
-                    </div>
-                  </div>
-                  <div class="data-sensor border">
-                    <div class="form-group">
-                      <h4 class="text-danger">Nhiệt độ:</h4>
-                      <span>45</span>
-                    </div>
-                  </div>
-                  <div class="data-sensor border">
-                    <div class="form-group">
-                      <h4 class="text-info">Độ ẩm đất:</h4>
-                      <span>500</span>
-                    </div>
-                  </div>
-                  <div class="data-sensor border">
-                    <div class="form-group">
-                      <h4 class="text-success">Cường độ ánh sáng:</h4>
-                      <span>500</span>
-                    </div>
-                  </div>
-                  <div class="set-calendar border">
-                    <h4>Đặt lịch bón phân</h4>
-                    if (schedules)
-                      p.schedules.text-danger= 'Đã đặt lịch bón phân:' + schedules.created_at
+                  .row
+                    .col-md-6
+                      <div class="data-sensor border">
+                        <div class="form-group">
+                          <h4 class="text-blue">Độ ẩm không khí:</h4>
+                          <span>15</span>
+                        </div>
+                      </div>
+                    .col-md-6
+                      <div class="data-sensor border">
+                        <div class="form-group">
+                          <h4 class="text-danger">Nhiệt độ:</h4>
+                          <span>45</span>
+                        </div>
+                      </div>
+                    .col-md-6
+                      <div class="data-sensor border">
+                        <div class="form-group">
+                          <h4 class="text-info">Độ ẩm đất:</h4>
+                          <span>500</span>
+                        </div>
+                      </div>
+                    .col-md-6
+                      <div class="data-sensor border">
+                        <div class="form-group">
+                          <h4 class="text-success">Cường độ ánh sáng:</h4>
+                          <span>500</span>
+                        </div>
+                      </div>
+
+                  <div class="set-calendar border mt-1">
+                    <h4 style="color: #8795f9; font-weight: bold">Đặt lịch bón phân</h4>
+                    if (schedules.length > 0)
+                      p.schedules.text-danger= 'Đã đặt lịch bón phân: ' + schedules[0].date + ' ' + schedules[0].time
                     <div class="row">
                       form(action="" method="post" id="schedule")
                         <div class="col-sm-5">
@@ -128,25 +137,23 @@ block content
                 </div>
               </div>
               <div class="panel-body pb0">
-                <ul class="list-unstyled activity-list">
+                <ul class="list-unstyled activity-list" id="list-mess">
                   each note in notes
-                      li
-                        img.img-circle.pull-left.avatar(src='/assets/img/user/default.png', alt='Avatar')
-                        p
-                          a(href='#') abcd 
-                          = note.content
-                          span.timestamp 12/12/1231
-                  
-
+                    li
+                      img.img-circle.pull-left.avatar(src='/assets/img/user/default.png', alt='Avatar')
+                      p
+                        a(href='#')= user.name
+                        | 
+                        = note.created_at
+                        span.timestamp= note.content
                 </ul>
               </div>
               <div class="panel-footer pb0">
                 <div class="form-group">
-                  <form action="">
-                    <input type="text" name="content" class="form-control form-note" placeholder="Nhập ghi chú" required>
-                    <input type="hidden" name="area_id" value="{{ $area->id }}" class="area_id">
+                    <input type="text" name="content" class="form-control form-note" id="content" placeholder="Nhập ghi chú" required>
+                    input(type="hidden", id="area-name", value=notes[0].kv)
+                    input(type="hidden", id="user-name", value=user.name)
                     <button class="btn btn-primary btn-add-note" type="reset">Thêm</button>
-                  </form>
                 </div>
               </div>
             </div>

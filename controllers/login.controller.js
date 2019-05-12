@@ -38,7 +38,7 @@ module.exports.Postlogin = function(req, res) {
 module.exports.logout = function(req, res) {
 	// console.log(req.cookies.token);
 	// res.cookie('token', 'logout', {overwrite: true});
-	res.clearCookie('token', { path: 'http://localhost:3000', overwrite: true});
+	res.clearCookie('token', { path: 'http://localhost:3000/auth', overwrite: true});
 	// res.cookie('token2', 'logout');
 	res.redirect('auth/login');
 };
