@@ -8,6 +8,7 @@ $('.btn-schedule').click(function() {
 	$('#schedule').submit();
 });
 
+// send message to server when click button
 $('.btn-add-note').click(function(e) {
 	e.preventDefault();
 	var note = {};
@@ -20,6 +21,7 @@ $('.btn-add-note').click(function(e) {
 	$('#content').val('');
 });
 
+//show message when servern response
 socket.on('show-mess', function(data) {
 	var mess = `<li>
 		<img src="/assets/img/user/default.png" class="img-circle pull-left avatar">
@@ -31,4 +33,38 @@ socket.on('show-mess', function(data) {
 		</li>
 	`;
 	$('#list-mess').prepend(mess);
+});
+
+//Handle event when click button On/Off
+$('.mbom').click(function() {
+    var status = $(this).attr('data-status');
+    var data = null;
+    if (status == 'off') {
+        data = 'on';
+    } else {
+        data = 'off';
+    }
+
+    $(this).attr('data-status', data);
+    console.log(data);
+
+    socket.emit('click_mbom', data);
+});
+
+socket.on('mbom-res', function(data) {
+    console.log(data);
+    if (data.status == 'on success') {
+        $('.mbom').removeClass('off');
+        $('.mbom').text('Bật');
+    } else {
+        $('.mbom').addClass('off');
+        $('.mbom').text('Tắt');
+    }
+});
+
+socket.on('show-info', function(data) {
+    $('.doam').text(function() {
+        $('.doam').text('');
+        $('.doam').text(data.random);
+    })
 });

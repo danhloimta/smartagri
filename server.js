@@ -52,6 +52,27 @@ io.on('connection', function (socket) {
         io.sockets.emit('show-mess', mess);
     });
 
+
+    socket.on('send_info', function(data) {
+    	console.log(data);
+
+    	socket.broadcast.emit('show-info', data);
+    });
+
+    socket.on('save_info', function(data) {
+        // handleData(data);
+    });
+
+    socket.on('click_mbom', function(data) {
+    	console.log(data);
+    	socket.broadcast.emit('mbom', data);
+    });
+
+    socket.on('res', function(data) {
+    	console.log(data);
+    	socket.broadcast.emit('mbom-res', data);
+    });
+
     socket.on('disconnect', function () {
         console.log('Client disconnect'.gray);
     });
@@ -62,4 +83,19 @@ function getFormattedDate() {
     var str = date.getFullYear() + "-" + (date.getMonth() + 1) + "-" + date.getDate() + " " +  date.getHours() + ":" + date.getMinutes() + ":" + date.getSeconds();
 
     return str;
+}
+
+function getMinute() {
+    var date = new Date();
+
+    return date.getMinutes();
+}
+
+function saveData(data) {
+	setTimeout(hanleData, 60000, data);
+}
+
+function handleData(data) {
+    console.log('save data: ', data.random);
+    db.get('doam').push(data.random).write();
 }

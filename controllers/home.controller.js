@@ -33,28 +33,35 @@ function getNotes() {
     });
 }
 
+function getSchedules() {
+    scheduleA = [],
+    scheduleB = [],
+    scheduleC = [];
+
+    schedules.forEach(function(ele, index) {
+        switch (ele.kv) {
+            case 'kvA':
+                scheduleA.push(ele);
+                break;
+            case 'kvB':
+                scheduleB.push(ele);
+                break;
+            case 'kvC':
+                scheduleC.push(ele);
+                break;
+            default:
+                // statements_def
+                break;
+        }
+    });
+}
+
+getSchedules();
 getNotes();
-
-schedules.forEach(function(ele, index) {
-    switch (ele.kv) {
-        case 'kvA':
-            scheduleA.push(ele);
-            break;
-        case 'kvB':
-            scheduleB.push(ele);
-            break;
-        case 'kvC':
-            scheduleC.push(ele);
-            break;
-        default:
-            // statements_def
-            break;
-    }
-});
-
 
 module.exports.kva = function(req, res) {
     getNotes();
+    getSchedules();
 	res.render('index', {
 		title: 'Area A',
 		notes: notesA,
@@ -64,6 +71,7 @@ module.exports.kva = function(req, res) {
 
 module.exports.kvb = function(req, res) {
     getNotes();
+    getSchedules();
 	res.render('index', {
 		title: 'Area B',
 		notes: notesB,
@@ -73,6 +81,7 @@ module.exports.kvb = function(req, res) {
 
 module.exports.kvc = function(req, res) {
     getNotes();
+    getSchedules();
     res.render('index', {
 		title: 'Area C',
 		notes: notesC,
