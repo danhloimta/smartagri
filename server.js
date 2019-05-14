@@ -56,6 +56,7 @@ io.on('connection', function (socket) {
     socket.on('send_info', function(data) {
     	console.log(data);
 
+        setInterval(handleData, 10000, data);
     	socket.broadcast.emit('show-info', data);
     });
 
@@ -88,7 +89,17 @@ function getFormattedDate() {
 function getMinute() {
     var date = new Date();
 
-    return date.getMinutes();
+    Date.prototype.addMinutes = function(minutes) {
+        this.setMinutes(this.getMinutes() + minutes);
+        return this;
+    };
+
+    var minute = {};
+
+    minute.now = date.getMinutes();
+    minute.after = date.addMinutes(5).getMinutes();
+
+    return minute;
 }
 
 function saveData(data) {
@@ -97,5 +108,5 @@ function saveData(data) {
 
 function handleData(data) {
     console.log('save data: ', data.random);
-    db.get('doam').push(data.random).write();
+    // db.get('doam').push(data.random).write();
 }
